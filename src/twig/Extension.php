@@ -8,6 +8,9 @@ use Twig\TwigFunction;
 
 class Extension extends AbstractExtension
 {
+    // Public Methods
+    // =========================================================================
+
     /**
      * @inheritdoc
      */
@@ -26,9 +29,7 @@ class Extension extends AbstractExtension
         $portal = Plugin::getInstance()->getPortal();
 
         return [
-            new TwigFunction('portalTarget', [$portal, 'renderTarget'], ['is_safe' => ['html']]),
+            new TwigFunction('portalTarget', [$portal, 'renderTargetComment'], ['is_safe' => ['html']]),
         ];
     }
-
-
 }

@@ -7,10 +7,16 @@ use craft\helpers\StringHelper;
 
 class Portal extends Component
 {
+    // Properties
+    // =========================================================================
+
     /**
      * @var array
      */
     private $_portals = [];
+
+    // Public Methods
+    // =========================================================================
 
     /**
      * @param string $html
@@ -27,12 +33,23 @@ class Portal extends Component
      * @param string $target
      * @return string
      */
-    public function renderTarget(string $target): string
+    public function renderTargetComment(string $target): string
     {
-        if (!isset($this->_portals[$target])) {
-            return '';
-        }
+        return "<!-- portal-target: {$target} -->";
+    }
 
-        return implode("\n", $this->_portals[$target]);
+    /**
+     * @param string $html
+     * @return string
+     */
+    public function replaceTargetComments(string $html): string
+    {
+        return preg_replace_callback('/<\!-- portal-target: (\w+) -->/', function($matches) {
+            if (!isset($this->_portals[$matches[1]])) {
+                return '';
+            }
+
+            return implode("\n", $this->_portals[$matches[1]]);
+        }, $html);
     }
 }

@@ -31,6 +31,8 @@ class Plugin extends \craft\base\Plugin
 
         $view = Craft::$app->getView();
         $view->registerTwigExtension(new Extension());
+
+        $this->_registerCraftEventHandlers();
     }
 
     /**
@@ -41,5 +43,18 @@ class Plugin extends \craft\base\Plugin
     public function getPortal(): Portal
     {
         return $this->get('portal');
+    }
+
+    // Private Methods
+    // =========================================================================
+
+    /**
+     * Registers event handlers.
+     */
+    private function _registerCraftEventHandlers()
+    {
+        Event::on(View::class, View::EVENT_AFTER_RENDER_PAGE_TEMPLATE, function (TemplateEvent $event) {
+            $event->output = $this->getPortal()->replaceTargetComments($event->output);
+        });
     }
 }
