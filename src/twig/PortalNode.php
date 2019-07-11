@@ -16,7 +16,7 @@ class PortalNode extends Node
      */
     public function compile(Compiler $compiler)
     {
-        $key = $this->hasNode('key') ? $this->getNode('key') : null;
+        $order = $this->hasNode('order') ? $this->getNode('order') : null;
 
         $compiler
             ->addDebugInfo($this)
@@ -25,10 +25,10 @@ class PortalNode extends Node
             ->write(Plugin::class . '::getInstance()->getPortal()->registerSource(ob_get_clean(), ')
             ->subcompile($this->getNode('target'));
 
-        if ($key) {
+        if ($order) {
             $compiler
                 ->write(', ')
-                ->subcompile($key);
+                ->subcompile($order);
         }
 
         $compiler

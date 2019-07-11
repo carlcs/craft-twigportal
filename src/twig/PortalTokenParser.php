@@ -32,10 +32,9 @@ class PortalTokenParser extends AbstractTokenParser
 
         $nodes['target'] =  $parser->getExpressionParser()->parseExpression();
 
-        if ($stream->test(Token::NAME_TYPE, 'using')) {
+        if ($stream->test(Token::NAME_TYPE, 'order')) {
             $stream->next();
-            $stream->expect(Token::NAME_TYPE, 'key');
-            $nodes['key'] = $parser->getExpressionParser()->parseExpression();
+            $nodes['order'] = $parser->getExpressionParser()->parseExpression();
         }
 
         $stream->expect(Token::BLOCK_END_TYPE);

@@ -3,7 +3,7 @@
 namespace carlcs\twigportal\services;
 
 use craft\base\Component;
-use craft\helpers\StringHelper;
+use craft\helpers\ArrayHelper;
 
 class Portal extends Component
 {
@@ -21,12 +21,11 @@ class Portal extends Component
     /**
      * @param string $html
      * @param string $target
-     * @param string|null $key
+     * @param int $order
      */
-    public function registerSource(string $html, string $target, string $key = null)
+    public function registerSource(string $html, string $target, int $order = 0)
     {
-        $key = $key ?: StringHelper::randomString(8);
-        $this->_portals[$target][$key] = $html;
+        $this->_portals[$target][] = compact('html', 'order');
     }
 
     /**
@@ -45,11 +44,14 @@ class Portal extends Component
     public function replaceTargetComments(string $html): string
     {
         return preg_replace_callback('/<\!-- portal-target: (\w+) -->/', function($matches) {
-            if (!isset($this->_portals[$matches[1]])) {
+            if (($portal = $this->_portals[$matches[1]] ?? false) === false) {
                 return '';
             }
 
-            return implode("\n", $this->_portals[$matches[1]]);
+            ArrayHelper::multisort($portal, 'order', SORT_ASC, SORT_NUMERIC);
+            $rows = ArrayHelper::getColumn($portal, 'html');
+
+            return implode("\n", $rows);
         }, $html);
     }
 }
