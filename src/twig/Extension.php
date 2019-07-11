@@ -26,7 +26,6 @@ class Extension extends AbstractExtension
         $portal = Plugin::getInstance()->getPortal();
 
         return [
-            new TwigFunction('portal', [$portal, 'registerSource']),
             new TwigFunction('portalTarget', [$portal, 'renderTarget'], ['is_safe' => ['html']]),
         ];
     }
