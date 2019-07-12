@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.0.0-beta.3 - 2019-07-12
 
 ### Fixed
 - Fixed a bug where `portal` tags couldn’t be used outside of `block` tags in templates that extend another one.
