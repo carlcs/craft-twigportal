@@ -5,8 +5,9 @@ namespace carlcs\twigportal\twig;
 use carlcs\twigportal\Plugin;
 use Twig\Compiler;
 use Twig\Node\Node;
+use Twig\Node\NodeCaptureInterface;
 
-class PortalNode extends Node
+class PortalNode extends Node implements NodeCaptureInterface
 {
     // Public Methods
     // =========================================================================
