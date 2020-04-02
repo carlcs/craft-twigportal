@@ -4,10 +4,10 @@ Adds a portal tag to Twig, to render DOM anywhere in the document.
 
 ## Installation
 
-The plugin is in beta right now. You can install it manually from the command line with the following commands.
+Twig Portal is available in the Plugin Store. You can also install the plugin manually from the command line with the following commands.
 
 ```
-> composer require carlcs/craft-twigportal:^1.0.0-beta.1
+> composer require carlcs/craft-twigportal
 > ./craft install/plugin twig-portal
 ```
 

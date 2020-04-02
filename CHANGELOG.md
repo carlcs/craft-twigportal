@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.0 - 2020-04-02
+
+### Added
+- Release v1.0
+
 ## 1.0.0-beta.3 - 2019-07-12
 
 ### Fixed
