@@ -7,6 +7,9 @@ use carlcs\twigportal\twig\Extension;
 use Craft;
 use craft\events\TemplateEvent;
 use craft\web\View;
+use putyourlightson\blitz\Blitz;
+use putyourlightson\blitz\events\SaveCacheEvent;
+use putyourlightson\blitz\services\GenerateCacheService;
 use yii\base\Event;
 
 /**
@@ -56,5 +59,12 @@ class Plugin extends \craft\base\Plugin
         Event::on(View::class, View::EVENT_AFTER_RENDER_PAGE_TEMPLATE, function (TemplateEvent $event) {
             $event->output = $this->getPortal()->replaceTargetComments($event->output);
         });
+
+        // Blitz plugin support
+        if (class_exists(Blitz::class)) {
+            Event::on(GenerateCacheService::class, GenerateCacheService::EVENT_BEFORE_SAVE_CACHE, function(SaveCacheEvent $event) {
+                $event->output = $this->getPortal()->replaceTargetComments($event->output);
+            });
+        }
     }
 }
