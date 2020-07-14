@@ -3,7 +3,7 @@
 ## 1.0.1 - 2020-07-14
 
 ### Added
-- Added support for the Blitz plugin. ([#2](https://github.com/carlcs/craft-twigportal/issues/2))
+- Added support for the Blitz plugin. ([#3](https://github.com/carlcs/craft-twigportal/issues/3))
 
 ## 1.0.0 - 2020-04-02
 
