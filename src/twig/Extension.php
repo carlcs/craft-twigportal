@@ -8,12 +8,6 @@ use Twig\TwigFunction;
 
 class Extension extends AbstractExtension
 {
-    // Public Methods
-    // =========================================================================
-
-    /**
-     * @inheritdoc
-     */
     public function getTokenParsers(): array
     {
         return [
@@ -21,9 +15,6 @@ class Extension extends AbstractExtension
         ];
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getFunctions(): array
     {
         $portal = Plugin::getInstance()->getPortal();

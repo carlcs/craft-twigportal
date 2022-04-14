@@ -7,8 +7,8 @@ Adds a portal tag to Twig, to render DOM anywhere in the document.
 Twig Portal is available in the Plugin Store. You can also install the plugin manually from the command line with the following commands.
 
 ```
-> composer require carlcs/craft-twigportal
-> ./craft install/plugin twig-portal
+composer require carlcs/craft-twigportal
+php craft plugin/install twig-portal
 ```
 
 ## Usage

@@ -2,31 +2,20 @@
 
 namespace carlcs\twigportal\twig;
 
-use Twig\Parser;
 use Twig\Token;
 use Twig\TokenParser\AbstractTokenParser;
 
 class PortalTokenParser extends AbstractTokenParser
 {
-    // Public Methods
-    // =========================================================================
-
-    /**
-     * @inheritdoc
-     */
     public function getTag(): string
     {
         return 'portal';
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function parse(Token $token)
+    public function parse(Token $token): PortalNode
     {
         $nodes = [];
         $lineno = $token->getLine();
-        /** @var Parser $parser */
         $parser = $this->parser;
         $stream = $parser->getStream();
 
@@ -44,10 +33,6 @@ class PortalTokenParser extends AbstractTokenParser
         return new PortalNode($nodes, [], $lineno, $this->getTag());
     }
 
-    /**
-     * @param Token $token
-     * @return bool
-     */
     public function decidePortalEnd(Token $token): bool
     {
         return $token->test('endportal');

@@ -9,12 +9,6 @@ use Twig\Node\NodeCaptureInterface;
 
 class PortalNode extends Node implements NodeCaptureInterface
 {
-    // Public Methods
-    // =========================================================================
-
-    /**
-     * @inheritdoc
-     */
     public function compile(Compiler $compiler)
     {
         $order = $this->hasNode('order') ? $this->getNode('order') : null;
