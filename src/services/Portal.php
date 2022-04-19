@@ -20,14 +20,14 @@ class Portal extends Component
         $this->_portals[$target][] = compact('html', 'order');
     }
 
-    public function renderTargetComment(string $target): string
+    public function renderTargetTag(string $target): string
     {
-        return "<!-- portal-target: $target -->";
+        return "<div data-portal-target=\"$target\"></div>";
     }
 
-    public function replaceTargetComments(string $html): string
+    public function replaceTargetTags(string $html): string
     {
-        return preg_replace_callback('/<\!-- portal-target: (\w+) -->/', function($matches) {
+        return preg_replace_callback('/<div[\s\r\n]+data-portal-target="(\w+)"><\/div>/', function($matches) {
             if (($portal = $this->_portals[$matches[1]] ?? false) === false) {
                 return '';
             }

@@ -26,7 +26,7 @@ class Plugin extends \craft\base\Plugin
         Craft::$app->getView()->registerTwigExtension(new Extension());
 
         Event::on(View::class, View::EVENT_AFTER_RENDER_PAGE_TEMPLATE, function(TemplateEvent $event) {
-            $event->output = $this->getPortal()->replaceTargetComments($event->output);
+            $event->output = $this->getPortal()->replaceTargetTags($event->output);
         }, null, false);
     }
 

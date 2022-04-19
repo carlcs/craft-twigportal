@@ -20,7 +20,7 @@ class Extension extends AbstractExtension
         $portal = Plugin::getInstance()->getPortal();
 
         return [
-            new TwigFunction('portalTarget', [$portal, 'renderTargetComment'], ['is_safe' => ['html']]),
+            new TwigFunction('portalTarget', [$portal, 'renderTargetTag'], ['is_safe' => ['html']]),
         ];
     }
 }

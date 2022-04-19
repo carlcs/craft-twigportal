@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.1 - 2022-04-19
+
+### Fixed
+- Fixed a bug where portals didn’t work with minified HTML. ([#4](https://github.com/carlcs/craft-twigportal/issues/4))
+
 ## 2.0.0 - 2022-04-14
 
 ### Added

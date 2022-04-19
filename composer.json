@@ -1,7 +1,7 @@
 {
   "name": "carlcs/craft-twigportal",
   "description": "Twig Portal plugin for Craft CMS",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "type": "craft-plugin",
   "keywords": [
     "twig",
