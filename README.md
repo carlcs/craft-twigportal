@@ -1,3 +1,6 @@
+> [!WARNING]  
+> **This plugin has been abandoned.** With the release of Craft 4.5, the [`_globals`](https://craftcms.com/docs/4.x/dev/global-variables.html#globals) Twig variable has been added, rendering this plugin obsolete. The functionality it provided can now be achieved using the new variable.
+
 # Twig Portal plugin for Craft CMS
 
 Adds a portal tag to Twig, to render DOM anywhere in the document.
